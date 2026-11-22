@@ -1,0 +1,6 @@
+# local preview scratch
+pv.html
+preview*.png
+
+__pycache__/
+*.pyc

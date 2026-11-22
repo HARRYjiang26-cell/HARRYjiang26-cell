@@ -1,9 +1,8 @@
 # HARRYjiang26-cell
 
 <p align="center">
-  <!-- Coloured ASCII portrait: rebuilt from avatar.png by scripts/ascii_avatar.py
-       and rendered to SVG by scripts/colored_svg.py -->
-  <img src="avatar.svg" alt="coloured ASCII portrait" width="480" />
+  <!-- Portrait: hand-drawn ASCII in avatar.txt, colour-graded by scripts/colored_svg.py -->
+  <img src="avatar.svg" alt="ASCII portrait" width="660" />
 </p>
 
 <!-- STATS:START -->
@@ -27,10 +26,10 @@ Commits   : 10    PRs       : 0
 Issues    : 0    Followers : 0
 Lines (est.): 600
 
-_updated 2026-11-22 04:12 UTC_
+_updated 2026-11-22 12:12 UTC_
 ```
 <!-- STATS:END -->
 
 ---
 
-<sub>Everything above is regenerated daily by <code>.github/workflows/update.yml</code>.</sub>
+<sub>The portrait comes from the hand-drawn <code>avatar.txt</code>; the stats block below it is regenerated daily by <code>.github/workflows/update.yml</code>.</sub>
