@@ -25,10 +25,12 @@ jobs:
       - name: Install Pillow
         run: python -m pip install --quiet pillow
 
-      - name: Refresh ASCII portrait
+      - name: Rebuild coloured ASCII portrait
         run: |
-          python scripts/ascii_avatar.py avatar.png --cols 36 --rows 18 --invert --contrast 2.2 --out avatar.txt
-          python scripts/ascii_to_svg.py avatar.txt --out avatar.svg
+          python scripts/ascii_avatar.py avatar.png \
+            --cols 32 --rows 16 --invert --contrast 2.2 \
+            --json avatar.json --out avatar.txt
+          python scripts/colored_svg.py avatar.json --out avatar.svg
 
       - name: Refresh stats block
         env:
@@ -44,6 +46,6 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add README.md avatar.txt avatar.svg
+          git add README.md avatar.txt avatar.json avatar.svg
           git commit -m "chore: refresh profile card"
           git push

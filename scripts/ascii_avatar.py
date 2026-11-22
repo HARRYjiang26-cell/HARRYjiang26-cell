@@ -91,6 +91,11 @@ def main() -> int:
     ap.add_argument("--invert", action="store_true", help="dark background portrait")
     ap.add_argument("--contrast", type=float, default=1.0)
     ap.add_argument("--ansi", action="store_true", help="emit 24-bit colour escapes")
+    ap.add_argument(
+        "--json",
+        metavar="FILE",
+        help="write {cols, rows, cells:[{ch, rgb}]} for coloured_svg.py",
+    )
     ap.add_argument("--out", help="write to file instead of stdout")
     args = ap.parse_args()
 
@@ -98,6 +103,20 @@ def main() -> int:
     img = load(args.image, max(args.cols, rows))
     lum, rgb = to_ascii(img, args.cols, rows, args.invert, args.contrast)
     text = render_ansi(lum, rgb) if args.ansi else render_text(lum)
+
+    if args.json:
+        import json
+
+        cells = []
+        for r in range(rows):
+            line = []
+            for c in range(args.cols):
+                idx = min(len(RAMP) - 1, max(0, int(lum[r][c] * (len(RAMP) - 1) + 0.5)))
+                line.append({"ch": RAMP[idx], "rgb": list(rgb[r][c])})
+            cells.append(line)
+        with open(args.json, "w", encoding="utf-8", newline="\n") as fh:
+            json.dump({"cols": args.cols, "rows": rows, "cells": cells}, fh)
+        print(f"wrote {args.json}")
 
     if args.out:
         with open(args.out, "w", encoding="utf-8") as fh:
