@@ -27,6 +27,13 @@ jobs:
       - name: Re-render portrait from avatar.txt
         run: python scripts/colored_svg.py avatar.txt --text-mode --out avatar.svg
 
+      # Chrome does not inherit xml:space from <g>; when it regressed the whole
+      # portrait collapsed left. Fail here instead of shipping a broken image.
+      - name: Validate portrait SVG
+        run: |
+          python -m pip install --quiet lxml
+          python scripts/check_svg.py avatar.svg
+
       - name: Refresh stats block
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -146,7 +146,12 @@ def build(cells: list[list[dict]], bg: str) -> str:
 
         line = "".join(runs)
         if line:
-            out.append(f'<text x="{PAD_X}" y="{y}">{line}</text>')
+            # xml:space must sit on the <text> element itself: Chrome does not
+            # inherit it from an ancestor <g>, and without it every leading
+            # space collapses, which shifts the whole portrait to the left.
+            out.append(
+                f'<text x="{PAD_X}" y="{y}" xml:space="preserve">{line}</text>'
+            )
 
     out.append("</g>")
     out.append("</svg>")
