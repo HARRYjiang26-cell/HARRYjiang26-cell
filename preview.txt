@@ -1,0 +1,20 @@
+﻿                                         HARRYjiang26-cell@github
+                                         ------------------------
+   .*++++++++++*:      .*++++++++++*:    OS          : Windows 11
+   .*++++++++++*:      .*++++++++++*:    Uptime      : since 2026
+   .*++++++++++*:      .*++++++++++*:    Host        : GitHub
+                                         Kernel      : git
+                                         IDE         : VS Code
+                                         Shell       : PowerShell
+    :..........:        :..........:     Languages   : pending
+   .*++++++++++*:      .*++++++++++*:    Hobbies     : coding, music
+   .*++++++++++*:      .*++++++++++*:    Contact     : @HARRYjiang26-cell
+    -:::::+++++*:      .*+++++::::::
+          =++++*:      .*+++++           - GitHub Stats
+          =++++*:      .*+++++           Repos       : 1
+          =++++*:      .*+++++           Stars       : 0
+                                         Commits     : 0
+                                         Followers   : 0
+
+
+
